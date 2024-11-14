@@ -39,7 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'task',
     'rest_framework',
+    'rest_framework_simplejwt',
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT Authentication
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'URL_FIELD_NAME': 'url',  # Add this if not already present
+    'DEFAULT_TRAILING_SLASH': False,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
